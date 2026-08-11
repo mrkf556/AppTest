@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/StoreApp.Api/StoreApp.Api.csproj" />
+    <Project Path="src/StoreApp.Application/StoreApp.Application.csproj" />
+    <Project Path="src/StoreApp.Domain/StoreApp.Domain.csproj" />
+    <Project Path="src/StoreApp.Infrastructure/StoreApp.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/StoreApp.UnitTests/StoreApp.UnitTests.csproj" Id="1ad0af98-0c8e-4e6f-afa6-905c5c6e93a1" />
+  </Folder>
+</Solution>
