@@ -30,7 +30,8 @@ namespace StoreApp.Infrastructure.Services.CQRS
         {
             _serviceProvider = serviceProvider;
         }
-
+        
+      
         public async Task<TResponse> Send<TResponse>(ICommand<TResponse> command,CancellationToken cancellationToken = default)
         {
             //سه خط کد زیر عمل زیر را انجام میده
