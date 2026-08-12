@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoreApp.Api.Results;
 using StoreApp.Application.Abstractions.CQRS;
+using StoreApp.Application.Abstractions.Results;
 using StoreApp.Application.Basket.AddItemToBasket;
 using StoreApp.Application.Basket.ClearBasket;
 using StoreApp.Application.Basket.DTOs;
@@ -58,7 +59,9 @@ namespace StoreApp.Api.Controllers
         public async Task<ActionResult<ApiResult>> RemoveItem(long userId,long productId,CancellationToken cancellationToken)
         {
             var command = new RemoveBasketItemCommand(userId,productId);
-
+    //        var reFsult = await _commandDispatcher.Send<ServiceResult>(
+    //command,
+    //cancellationToken);
             var result = await _commandDispatcher.Send(command,cancellationToken);
 
             return this.ToApiResult(result);
