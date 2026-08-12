@@ -62,6 +62,9 @@ namespace StoreApp.Api.Controllers
     //        var reFsult = await _commandDispatcher.Send<ServiceResult>(
     //command,
     //cancellationToken);
+
+
+            ///تایپی که داخل commadn هست به عنوان نوع خروجی در نظر میگیریم 
             var result = await _commandDispatcher.Send(command,cancellationToken);
 
             return this.ToApiResult(result);
