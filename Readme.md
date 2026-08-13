@@ -197,3 +197,27 @@ docker compose exec storeapp.api dotnet ef database update --project /src/src/St
 
 ### نکته‌ی مهم درباره‌ی Connection String پیش‌فرض
 `appsettings.json` پروژه به‌صورت پیش‌فرض از `(localdb)` استفاده می‌کنه که فقط روی ویندوز و بدون Docker کار می‌کنه. در `docker-compose.yml`، این مقدار از طریق Environment Variable با `Server=sqlserver;...` بازنویسی می‌شه (چون داخل شبکه‌ی Docker، نام سرویس `sqlserver` به‌جای `localhost` استفاده می‌شه). اگه بخوای این تنظیمات رو دائمی کنی، بهتره یه `appsettings.Docker.json` جدا بسازی و `ASPNETCORE_ENVIRONMENT=Docker` رو در `docker-compose.yml` ست کنی.
+
+
+## منابعی که جهت انجام این Task به کاربردم
+
+
+### refrence Send on CommandDispacher
+منبع زیر از سایت مدیوم استفاده کردم منبع من بود جهت اینکه بتوانم موضوع اصلی تسک CQRS  خام را به کار ببرم
+### https://jordansrowles.medium.com/building-your-own-mediator-pattern-in-modern-net-804995c44a1b
+
+
+https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection
+https://github.com/jbogard/MediatR
+
+
+
+### refrence EventDispacher
+
+
+
+https://tech-fellow.eu/2016/10/31/baking-round-shaped-software-mapping-to-the-code
+https://stackoverflow.com/questions/30625363/implementing-domain-event-handler-pattern-in-c-sharp-with-simple-injector/30636387
+
+
+
