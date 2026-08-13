@@ -55,9 +55,9 @@ test/
 ### `Management Error on Microservice` 
 برای مدیریت بهتر خطا در پروژه های میکروسرویسی جهت اینکه پروژه در نقطه عملکردی بهتری داشته باشد 
 موارد زیر در آینده به آن اضافه شود 
-1 timeouts with 
-2 circuit Breaker Pattern with 
-3 FallBack 
+- 1 timeouts with 
+- 2 circuit Breaker Pattern with 
+- 3 FallBack 
 موارد بالا را میتوان با کتاب خانه Polly به کاربرد
 
 ### Dispatcher و مشکل overhead ناشی از `dynamic`
