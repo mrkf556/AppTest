@@ -1,8 +1,8 @@
 ﻿using System.Text.Json;
 using StackExchange.Redis;
 using StoreApp.Application.Abstractions.DependencyInjection;
+using StoreApp.Application.Abstractions.DTOs;
 using StoreApp.Application.Abstractions.Redis;
-using StoreApp.Application.Basket.DTOs;
 
 namespace StoreApp.Infrastructure.Services.BasketCacheService;
 

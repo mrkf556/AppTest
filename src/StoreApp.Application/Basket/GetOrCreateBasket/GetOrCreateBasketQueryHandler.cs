@@ -1,10 +1,10 @@
 ﻿using StoreApp.Application.Abstractions.Contracts;
 using StoreApp.Application.Abstractions.CQRS;
 using StoreApp.Application.Abstractions.DependencyInjection;
+using StoreApp.Application.Abstractions.DTOs;
 using StoreApp.Application.Abstractions.Redis;
 using StoreApp.Application.Abstractions.Results;
-using StoreApp.Application.Basket.DTOs;
-using StoreApp.Infrastructure.Persistence;
+ using StoreApp.Infrastructure.Persistence;
 using BasketEntity = StoreApp.Domain.Enitities.Basket;
 
 namespace StoreApp.Application.Basket.GetOrCreateBasket

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StoreApp.Application.Basket.DTOs
+namespace StoreApp.Application.Abstractions.DTOs
 {
     //  فقط برای انتقال داده استفاده می‌شود
     public   class BasketDTO

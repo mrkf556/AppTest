@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StoreApp.Application.Basket.DTOs
+namespace StoreApp.Application.Abstractions.DTOs
 {
     //  فقط برای انتقال داده استفاده می‌شود
     // این DTO برای انتقال اطلاعات یک آیتم سبد خرید استفاده می‌شود.

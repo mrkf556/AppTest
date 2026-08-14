@@ -1,12 +1,12 @@
 ﻿using Moq;
 using StoreApp.Application.Abstractions.Redis;
 using StoreApp.Application.Basket.AddItemToBasket;
-using StoreApp.Application.Basket.DTOs;
-using StoreApp.Infrastructure.Persistence;
+ using StoreApp.Infrastructure.Persistence;
 using StoreApp.Domain.Enitities;
 using Xunit;
 using StoreApp.Application.Abstractions.Contracts;
 using BasketEntity = StoreApp.Domain.Enitities.Basket;
+using StoreApp.Application.Abstractions.DTOs;
 namespace StoreApp.UnitTests.Basket
 {
     public class AddItemToBasketCommandHandlerTests

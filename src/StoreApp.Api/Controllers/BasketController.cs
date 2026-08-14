@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoreApp.Api.Results;
 using StoreApp.Application.Abstractions.CQRS;
+using StoreApp.Application.Abstractions.DTOs;
 using StoreApp.Application.Abstractions.Results;
 using StoreApp.Application.Basket.AddItemToBasket;
 using StoreApp.Application.Basket.ClearBasket;
-using StoreApp.Application.Basket.DTOs;
 using StoreApp.Application.Basket.GetOrCreateBasket;
 using StoreApp.Application.Basket.RemoveBasketItem;
 using StoreApp.Application.Basket.UpdateBasketItemQuantity;

@@ -1,4 +1,4 @@
-﻿using StoreApp.Application.Basket.DTOs;
+﻿using StoreApp.Application.Abstractions.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
