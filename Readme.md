@@ -193,7 +193,7 @@ docker compose exec storeapp.api dotnet ef database update --project /src/src/St
 > dotnet ef database update --project src/StoreApp.Infrastructure --startup-project src/StoreApp.Api --connection "Server=localhost,1433;Database=BasketAppSimagran;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true"
 > ```
 
-بعد از بالا اومدن، API روی `http://localhost:5152` در دسترسه و Swagger هم (در محیط Development) روی `http://localhost:8080/swagger`.
+بعد از بالا اومدن، API روی `http://localhost:5152` در دسترسه و Swagger هم (در محیط Development) روی `http://localhost:5152/swagger`.
 
 پنل مدیریت RabbitMQ هم روی `http://localhost:15672` قابل مشاهده‌ست (کاربری/رمز پیش‌فرض: `guest` / `guest`).
 
