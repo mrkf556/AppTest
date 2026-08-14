@@ -22,13 +22,11 @@ namespace StoreApp.Infrastructure.Services.CQRS
         {
             var queryType = query.GetType();
 
-            var handlerType = typeof(IQueryHandler<,>)
-                .MakeGenericType(queryType, typeof(TResponse));
+            var handlerType = typeof(IQueryHandler<,>).MakeGenericType(queryType, typeof(TResponse));
 
             var handler = _serviceProvider.GetRequiredService(handlerType);
 
-            return await ((dynamic)handler)
-                .Handle((dynamic)query, cancellationToken);
+            return await ((dynamic)handler).Handle((dynamic)query, cancellationToken);
         }
     }
 }
