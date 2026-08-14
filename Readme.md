@@ -45,15 +45,19 @@ test/
 ### ۴. یادگیری اینکه چطور Command و Query رو به Handler درستشون برسونم
 چون تصمیم گرفتم به‌جای استفاده از MediatR (که خودش این کار رو انجام می‌ده)، این بخش رو خودم بنویسم، اول نمی‌دونستم چطور باید از روی یه Command مشخص کنم کدوم Handler باید اجراش کنه. با کمک `GetType()` نوع واقعی Command رو گرفتم و از DI خواستم Handler متناظرش رو پیدا کنه. این بخش برام خیلی کمک کرد بفهمم Dependency Injection دقیقاً چطور پشت صحنه کار می‌کنه.
 
-## چالش های آینده 
-###redis Cash 
+## چالش های آینده
+### `outBox Pattern`
+این پترن باید حتما در تمام پروژه های میکروسرویسی به کار برده شود چون احتمال دارد قبل از publish پیام دیتا عملیاتی انجام شود ولی وقتی به عمل publish رسید کرش اتفاق بیافتد یعنی عملیات کاربر با موفقیت اتفاق افتاده اما قبل publish  سرور کرش کند این یک خطای مهم هست که با الگو نام برده شد میتوان آن را کنترل کرد. 
+### `BasketItemAddedEvent` 
+صراحتا در تسک موضوعی اعلام نشده که چه اتفاقی نسبت به این event اتفاق بیافتد ؛ اما من هم مانند expire  فعلا یک لاگ ایجاد گردم نسبت به این رویداد
+### `redis Cash`
 بهتر هست که ما از بازه زمانی random استفاده کنیم به دلیل اینکه اگر در دقیقه یک، ۲۰۰ کاربر کش ۵ دقیقه ای بگیرند بعد از ۵ دقیقه، همزمان ۲۰۰ کاربر درخواست بدن باعث افت عملکرد می شود بهتر هست برای هر کاربر یک بازه زمانی random در نظر گرفت که آن ۲۰۰ کاربر هر کدام در دقیقه های متفاوت برایشان کش انجام شود.
-### Management Error on Microservice 
+### `Management Error on Microservice` 
 برای مدیریت بهتر خطا در پروژه های میکروسرویسی جهت اینکه پروژه در نقطه عملکردی بهتری داشته باشد 
 موارد زیر در آینده به آن اضافه شود 
-1 timeouts with polly
-2 circuit Breaker Pattern with polly
-3 FallBack 
+- 1 timeouts with 
+- 2 circuit Breaker Pattern with 
+- 3 FallBack 
 موارد بالا را میتوان با کتاب خانه Polly به کاربرد
 
 ### Dispatcher و مشکل overhead ناشی از `dynamic`
@@ -189,9 +193,33 @@ docker compose exec storeapp.api dotnet ef database update --project /src/src/St
 > dotnet ef database update --project src/StoreApp.Infrastructure --startup-project src/StoreApp.Api --connection "Server=localhost,1433;Database=BasketAppSimagran;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true"
 > ```
 
-بعد از بالا اومدن، API روی `http://localhost:8080` در دسترسه و Swagger هم (در محیط Development) روی `http://localhost:8080/swagger`.
+بعد از بالا اومدن، API روی `http://localhost:5152` در دسترسه و Swagger هم (در محیط Development) روی `http://localhost:5152/swagger`.
 
 پنل مدیریت RabbitMQ هم روی `http://localhost:15672` قابل مشاهده‌ست (کاربری/رمز پیش‌فرض: `guest` / `guest`).
 
 ### نکته‌ی مهم درباره‌ی Connection String پیش‌فرض
 `appsettings.json` پروژه به‌صورت پیش‌فرض از `(localdb)` استفاده می‌کنه که فقط روی ویندوز و بدون Docker کار می‌کنه. در `docker-compose.yml`، این مقدار از طریق Environment Variable با `Server=sqlserver;...` بازنویسی می‌شه (چون داخل شبکه‌ی Docker، نام سرویس `sqlserver` به‌جای `localhost` استفاده می‌شه). اگه بخوای این تنظیمات رو دائمی کنی، بهتره یه `appsettings.Docker.json` جدا بسازی و `ASPNETCORE_ENVIRONMENT=Docker` رو در `docker-compose.yml` ست کنی.
+
+
+## منابعی که جهت انجام این Task به کاربردم
+
+
+### refrence Send on CommandDispacher
+منبع اصلی زیر از سایت مدیوم استفاده کردم جهت اینکه بتوانم موضوع اصلی تسک CQRS  خام را به کار ببر
+### https://jordansrowles.medium.com/building-your-own-mediator-pattern-in-modern-net-804995c44a1b
+
+
+https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection
+https://github.com/jbogard/MediatR
+
+
+
+### refrence EventDispacher
+
+
+
+https://tech-fellow.eu/2016/10/31/baking-round-shaped-software-mapping-to-the-code
+https://stackoverflow.com/questions/30625363/implementing-domain-event-handler-pattern-in-c-sharp-with-simple-injector/30636387
+
+
+
